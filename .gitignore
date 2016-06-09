@@ -1,0 +1,6 @@
+_build
+.idea
+*.pyc
+dev.db
+dev1.db
+site_media
