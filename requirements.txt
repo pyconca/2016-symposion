@@ -17,4 +17,4 @@ easy-thumbnails==2.2
 html5lib==0.95
 
 # @@@ Pin this once we get to stable release
-git+git://github.com/pinax/symposion.git#egg=symposion
+git+git://github.com/pinax/symposion.git@1.0b2.dev3#egg=symposion
