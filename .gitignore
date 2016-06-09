@@ -4,3 +4,4 @@ _build
 dev.db
 dev1.db
 site_media
+fixtures
