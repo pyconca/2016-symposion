@@ -18,3 +18,6 @@ html5lib==0.9999999
 
 # @@@ Pin this once we get to stable release
 git+git://github.com/pinax/symposion.git#egg=symposion
+
+# Deployment
+gunicorn==19.6.0
