@@ -23,3 +23,4 @@ git+git://github.com/pinax/symposion.git#egg=symposion
 gunicorn==19.6.0
 dj-database-url==0.4.1
 psycopg2==2.6.1
+whitenoise==3.2
