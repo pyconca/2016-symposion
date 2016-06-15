@@ -1,5 +1,5 @@
 body {
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 section {
@@ -51,4 +51,83 @@ footer {
 
 .navbar-fixed-top {
     padding-top: 20px;
+}
+
+
+.btn {
+  border: 0 solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: @border-radius-base @border-radius-base 0 0;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: fade(@btn-default-color, 80%);
+    text-decoration: none;
+    border-bottom-color: fade(@btn-default-color, 50%);
+  }
+}
+
+/* Replace the bootstrap's button variant creation */
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: fade(@border, 50%);
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: fade(@border, 10%);
+    border-bottom-color: fade(@border, 50%);
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: @background;
+      border-bottom-color: fade(@border, 50%);
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+.btn-default {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+.btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+// Success appears as green
+.btn-success {
+  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+// Warning appears as orange
+.btn-warning {
+  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
 }
