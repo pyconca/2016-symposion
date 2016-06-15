@@ -4,9 +4,9 @@
 
 <ul class="nav navbar-nav pull-right">
     {% if request.user.is_authenticated %}
-        <p class="navbar-text">
+        <span class="navbar-text">
             <i class="fa fa-user"></i> {% user_display request.user %}
-        </p>
+        </span>
         <li>
             <a href="{% url "dashboard" %}"><i class="fa fa-tasks"></i> {% trans "Dashboard" %}</a>
         </li>
