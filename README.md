@@ -1,3 +1,14 @@
+PyCon Setup
+===========
+
+ToDo
+----
+
+- [ ] setup deployment
+- [ ] setup `noreply` email
+- [ ] setup `media` for upload
+
+
 Pinax Project Symposion
 ========================
 
