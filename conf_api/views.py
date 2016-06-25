@@ -4,7 +4,7 @@ from rest_framework.response import Response
 
 from symposion.conference.models import Conference, Section, current_conference
 from symposion.schedule.models import Schedule, Session, Day, Room, Slot, SlotKind, SlotRoom, Presentation, SessionRole
-from .serializers import ConferenceSerializer, ScheduleSerializer, SlotSerializer
+from .serializers import ConferenceSerializer, ScheduleSerializer, SlotSerializer, PresentationSerializer
 
 
 # CONFERENCE
@@ -38,3 +38,8 @@ class ScheduleViewSet(viewsets.ModelViewSet):
 class SlotViewSet(viewsets.ModelViewSet):
     queryset = Slot.objects.all()
     serializer_class = SlotSerializer
+
+
+class PresentationViewSet(viewsets.ModelViewSet):
+    queryset = Presentation.objects.all()
+    serializer_class = PresentationSerializer

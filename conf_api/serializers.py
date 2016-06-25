@@ -54,10 +54,15 @@ class RoomSerializer(serializers.ModelSerializer):
 
 class SlotSerializer(serializers.ModelSerializer):
     day = DaySerializer(read_only=True)
-    kind = serializers.CharField(source='kind__label', read_only=True)
+    kind = serializers.SerializerMethodField()
+    presentation = serializers.PrimaryKeyRelatedField(source='content_ptr', read_only=True)
 
     class Meta:
         model = Slot
+        fields = ('id', 'day', 'name', 'start', 'end', 'content_override', 'content_override_html', 'kind', 'presentation')
+
+    def get_kind(self, obj):
+        return obj.kind.label
 
 
 class PresentationSerializer(serializers.ModelSerializer):
