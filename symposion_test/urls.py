@@ -5,10 +5,15 @@ from django.views.generic import TemplateView
 
 from django.contrib import admin
 
+from rest_framework import routers
+
 import symposion.views
 
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
+
+router = routers.DefaultRouter()
+# router.register(r'users', UserViewSet)
 
 
 urlpatterns = patterns(
@@ -31,6 +36,9 @@ urlpatterns = patterns(
     url(r"^markitup/", include("markitup.urls")),
 
     # url(r"^", include("symposion.cms.urls")),
+
+
+    url(r"^api/", include('conf_api.urls'))
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
