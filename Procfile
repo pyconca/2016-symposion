@@ -1,1 +1,1 @@
-web: gunicorn symposion_test.wsgi
+web: gunicorn symposion2016.wsgi

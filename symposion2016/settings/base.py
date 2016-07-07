@@ -1,8 +1,8 @@
 import os
 
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
+PACKAGE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
@@ -147,7 +147,6 @@ INSTALLED_APPS = [
     "sitetree",
     "taggit",
     "timezones",
-    "rest_framework",
 
     # symposion
     "symposion",
@@ -164,7 +163,6 @@ INSTALLED_APPS = [
     # project
     "symposion2016",
     "symposion2016.pycon_proposals",
-    # "conf_api"
 ]
 
 # A sample logging configuration. The only tangible logging
