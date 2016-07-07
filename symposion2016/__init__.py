@@ -7,4 +7,4 @@ comprehensive account management functionality. It is a foundation
 suitable for most sites that have user accounts.
 """
 
-default_app_config = "symposion_test.apps.AppConfig"
+default_app_config = "symposion2016.apps.AppConfig"

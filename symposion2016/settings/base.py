@@ -119,10 +119,10 @@ MIDDLEWARE_CLASSES = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "symposion_test.urls"
+ROOT_URLCONF = "symposion2016.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = "symposion_test.wsgi.application"
+WSGI_APPLICATION = "symposion2016.wsgi.application"
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
@@ -169,8 +169,8 @@ INSTALLED_APPS = [
     "symposion.teams",
 
     # project
-    "symposion_test",
-    "symposion_test.test_proposals",
+    "symposion2016",
+    "symposion2016.pycon_proposals",
     # "conf_api"
 ]
 
@@ -234,6 +234,6 @@ MARKITUP_SKIN = "markitup/skins/simple"
 CONFERENCE_ID = 1
 SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
-    "tutorial": "symposion_test.test_proposals.forms.TutorialProposalForm",
-    "talk": "symposion_test.test_proposals.forms.TalkProposalForm",
+    "tutorial": "symposion2016.pycon_proposals.forms.TutorialProposalForm",
+    "talk": "symposion2016.pycon_proposals.forms.TalkProposalForm",
 }

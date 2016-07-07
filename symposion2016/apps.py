@@ -4,7 +4,7 @@ from importlib import import_module
 
 class AppConfig(BaseAppConfig):
 
-    name = "symposion_test"
+    name = "symposion2016"
 
     def ready(self):
-        import_module("symposion_test.receivers")
+        import_module("symposion2016.receivers")

@@ -38,7 +38,7 @@ def deploy():
         run('source %(remote_env_path)s/bin/activate' % env)
         run('pip install --upgrade -r %(path)s/requirements.txt' % env)
 
-        with shell_env(DJANGO_SETTINGS_MODULE='symposion_test.settings.prod',
+        with shell_env(DJANGO_SETTINGS_MODULE='symposion2016.settings.prod',
                        DATABASE_URL='postgres://symposion:MaG4pInClEdbk5S2yvcP@localhost:5432/pycon2016'):
             # Collect all the static files
             sudo('python manage.py collectstatic --noinput')
