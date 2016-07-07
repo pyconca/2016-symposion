@@ -1,5 +1,6 @@
 import os
 
+import dj_database_url
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -9,12 +10,19 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 EMAIL_DEBUG = DEBUG
 
+#postgres://ddnmclvgpsiktc:A5PMzYvR3h5LOi3vx-NyiL7yHz@ec2-50-17-237-148.compute-1.amazonaws.com:5432/d3kh21sp9ti0o6
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(PROJECT_ROOT, "dev.db"),
     }
 }
+
+# db_from_env = dj_database_url.config(
+#     conn_max_age=500,
+#     default='postgres://ddnmclvgpsiktc:A5PMzYvR3h5LOi3vx-NyiL7yHz@ec2-50-17-237-148.compute-1.amazonaws.com:5432/d3kh21sp9ti0o6')
+# DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = []
 
@@ -146,6 +154,7 @@ INSTALLED_APPS = [
     "sitetree",
     "taggit",
     "timezones",
+    "rest_framework",
 
     # symposion
     "symposion",
@@ -161,7 +170,8 @@ INSTALLED_APPS = [
 
     # project
     "symposion_test",
-    "symposion_test.test_proposals"
+    "symposion_test.test_proposals",
+    # "conf_api"
 ]
 
 # A sample logging configuration. The only tangible logging
