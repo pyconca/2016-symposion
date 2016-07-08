@@ -11,9 +11,3 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, os.pardir, "public", "media")
 MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, os.pardir, "public", "static")
 STATIC_URL = "/static/"
-
-MIDDLEWARE_CLASSES = [
-  # 'django.middleware.security.SecurityMiddleware',
-  'whitenoise.middleware.WhiteNoiseMiddleware',
-]+MIDDLEWARE_CLASSES
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
