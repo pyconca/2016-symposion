@@ -76,6 +76,8 @@ def deploy():
             # Collect all the static files
             sudo('%(virtualenv_root)s/bin/python manage.py collectstatic --noinput' % env)
 
+            sudo('chown -R deploy:deploy %(logs_root)s' % env)
+
             # Migrate and Update the database
             run('%(virtualenv_root)s/bin/python manage.py migrate sites --noinput' % env)
             run('%(virtualenv_root)s/bin/python manage.py migrate auth --noinput' % env)
