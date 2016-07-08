@@ -4,7 +4,7 @@ PyCon Setup
 ToDo
 ----
 
-- [+] setup deployment
+- [x] setup deployment
 - [ ] setup `noreply` email
 
 Dev quickstart
