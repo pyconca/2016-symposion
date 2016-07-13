@@ -23,6 +23,8 @@ def staging():
     env.db_user = 'symposion'
     env.db_pass = getpass.getpass(prompt="Please enter database (%(db_name)s) password for user %(db_user)s: " % env)
 
+    env.email_pass = getpass.getpass(prompt="Please enter email password: ")
+
     setup_path()
 
 
@@ -86,7 +88,8 @@ def deploy():
         # gunicorn entry script
         put(get_and_render_template('gunicorn_run.sh', dict(db_name=env.db_name,
                                                             db_user=env.db_user,
-                                                            db_pass=env.db_pass)),
+                                                            db_pass=env.db_pass,
+                                                            email_pass=env.email_pass)),
             os.path.join(env.run_root, 'gunicorn_run.sh'), use_sudo=True)
         sudo('chmod u+x %(run_root)s/gunicorn_run.sh' % env)
 
