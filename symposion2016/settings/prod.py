@@ -17,3 +17,5 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = 'DENY'
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
