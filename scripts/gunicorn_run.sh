@@ -9,7 +9,6 @@ NUM_WORKERS=3
 DJANGO_SETTINGS_MODULE=symposion2016.settings.prod
 DJANGO_WSGI_MODULE=symposion2016.wsgi
 DATABASE_URL=postgres://{{ db_user }}:{{ db_pass }}@localhost:5432/{{ db_name }}
-EMAIL_HOST_PASSWORD={{ email_pass }}
 
 # Activate the virtual environment
 cd $DJANGODIR
@@ -17,7 +16,6 @@ source ../env/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export DATABASE_URL=$DATABASE_URL
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
-export EMAIL_HOST_PASSWORD=$EMAIL_HOST_PASSWORD
 
 # Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
