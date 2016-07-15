@@ -25,6 +25,9 @@ class TalkProposalForm(ProposalForm):
             "audience_level",
             "description",
             "abstract",
+            "recurring",
+            "tutorial",
+            "duration",
             "additional_notes",
             "recording_release",
         ]

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import ugettext_lazy as _
 
 from symposion.proposals.models import ProposalBase
 
@@ -19,14 +20,42 @@ class Proposal(ProposalBase):
 
     recording_release = models.BooleanField(
         default=True,
-        help_text="By submitting your proposal, you agree to give permission to the conference organizers to record, edit, and release audio and/or video of your presentation. If you do not agree to this, please uncheck this box."
+        help_text="By submitting your proposal, you agree to give permission to the conference organizers to record,"
+                  " edit, and release audio and/or video of your presentation. If you do not agree to this, "
+                  "please uncheck this box."
     )
+
+    YES = 1
+    NO = 0
+    YES_NO_CHOICES = ((YES, 'Yes'), (NO, 'No'))
+
+    recurring = models.PositiveSmallIntegerField(choices=YES_NO_CHOICES,
+                                                 default=0,
+                                                 help_text=_("Have you given this talk before?"))
+    tutorial = models.PositiveSmallIntegerField(choices=YES_NO_CHOICES,
+                                                default=0,
+                                                help_text=_("Would you be interested in a speaking skill tutorial?"))
+
+    DURATION_SHORT = 'short'
+    DURATION_MEDIUM = 'medium'
+    DURATION_LONG = 'long'
+    DURATION_CHOICES = (
+        (DURATION_SHORT, 'Short (20 min or less)'),
+        (DURATION_MEDIUM, 'Medium (20 - 30 min)'),
+        (DURATION_LONG, 'Long (40 min or more)'),
+    )
+
+    duration = models.CharField(choices=DURATION_CHOICES,
+                                max_length=16,
+                                default=DURATION_MEDIUM,
+                                verbose_name=_("Duration"))
 
     class Meta:
         abstract = True
 
 
 class TalkProposal(Proposal):
+
     class Meta:
         verbose_name = "talk proposal"
 

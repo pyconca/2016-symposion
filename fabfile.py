@@ -17,7 +17,7 @@ def staging():
     env.hosts = ['portland.pynorth.org']
     env.site_hostname = 'staging.2016.pycon.ca'
     env.root = '/srv/www/pycon.ca/staging.2016/django'
-    env.branch = 'setting-up-email'
+    env.branch = 'master'
 
     env.db_name = 'pycon2016'
     env.db_user = 'symposion'
