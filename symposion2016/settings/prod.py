@@ -12,6 +12,8 @@ MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, os.pardir, "public", "static")
 STATIC_URL = "/static/"
 
+ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+
 MIDDLEWARE_CLASSES = ['django.middleware.security.SecurityMiddleware'] + MIDDLEWARE_CLASSES
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
