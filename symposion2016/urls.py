@@ -4,11 +4,17 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from django.contrib import admin
+from account.views import LoginView
+from account.forms import LoginEmailForm
 
 import symposion.views
 
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
+
+
+class LoginEmailView(LoginView):
+    form_class = LoginEmailForm
 
 
 urlpatterns = patterns(
@@ -18,6 +24,7 @@ urlpatterns = patterns(
 
     # url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),
     # url(r"^account/login/$", symposion.views.LoginView.as_view(), name="account_login"),
+    url(r"^account/login/$", LoginEmailView.as_view(), name="account_login"),
     url(r"^account/", include("account.urls")),
 
     url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),
