@@ -17,7 +17,7 @@ easy-thumbnails==2.3
 html5lib==0.9999999
 
 # @@@ Pin this once we get to stable release
-git+git://github.com/pyconca/symposion.git@2016.1#egg=symposion
+git+git://github.com/pyconca/symposion.git@master#egg=symposion
 
 # Deployment
 gunicorn==19.6.0
