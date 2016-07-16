@@ -31,10 +31,10 @@ class TalkProposalForm(ProposalForm):
             "additional_notes",
             "recording_release",
         ]
-        widgets = {
-            "abstract": MarkItUpWidget(),
-            "additional_notes": MarkItUpWidget(),
-        }
+        # widgets = {
+        #     "abstract": MarkItUpWidget(),
+        #     "additional_notes": MarkItUpWidget(),
+        # }
 
 
 class TutorialProposalForm(ProposalForm):
