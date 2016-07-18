@@ -28,8 +28,17 @@ def staging():
 
 @task
 def production():
-    # TODO
-    pass
+    env.environment = 'production'
+    env.hosts = ['portland.pynorth.org']
+    env.site_hostname = 'cfp.pycon.ca'
+    env.root = '/srv/www/pycon.ca/cfp/django'
+    env.branch = 'master'
+
+    env.db_name = 'pycon2016'
+    env.db_user = 'symposion'
+    env.db_pass = getpass.getpass(prompt="Please enter database (%(db_name)s) password for user %(db_user)s: " % env)
+
+    setup_path()
 
 
 def setup_path():
