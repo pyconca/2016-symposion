@@ -15,11 +15,11 @@ env.user = 'deploy'
 def staging():
     env.environment = 'staging'
     env.hosts = ['portland.pynorth.org']
-    env.site_hostname = 'staging.2016.pycon.ca'
-    env.root = '/srv/www/pycon.ca/staging.2016/django'
+    env.site_hostname = 'staging.cfp.pycon.ca'
+    env.root = '/srv/www/pycon.ca/staging.cfp/django'
     env.branch = 'master'
 
-    env.db_name = 'pycon2016'
+    env.db_name = 'pycon2016_staging'
     env.db_user = 'symposion'
     env.db_pass = getpass.getpass(prompt="Please enter database (%(db_name)s) password for user %(db_user)s: " % env)
 
@@ -85,7 +85,9 @@ def deploy():
             # Collect all the static files
             sudo('%(virtualenv_root)s/bin/python manage.py collectstatic --noinput' % env)
 
+            # Give deploy access to logs and run directories
             sudo('chown -R deploy:deploy %(logs_root)s' % env)
+            sudo('chown -R deploy:deploy %(run_root)s' % env)
 
             # Migrate and Update the database
             run('%(virtualenv_root)s/bin/python manage.py migrate sites --noinput' % env)
@@ -95,16 +97,23 @@ def deploy():
         # gunicorn entry script
         put(get_and_render_template('gunicorn_run.sh', dict(db_name=env.db_name,
                                                             db_user=env.db_user,
-                                                            db_pass=env.db_pass)),
+                                                            db_pass=env.db_pass,
+                                                            code_root=env.code_root,
+                                                            run_root=env.run_root,
+                                                            environment=env.environment)),
             os.path.join(env.run_root, 'gunicorn_run.sh'), use_sudo=True)
         sudo('chmod u+x %(run_root)s/gunicorn_run.sh' % env)
 
         # put supervisor conf
-        put(os.path.join(PROJECT_ROOT, 'scripts', 'symposion.conf'), '/etc/supervisor/conf.d', use_sudo=True)
+        put(get_and_render_template('symposion.conf', dict(environment=env.environment,
+                                                           logs_root=env.logs_root,
+                                                           run_root=env.run_root)),
+            '/etc/supervisor/conf.d/symposion_%(environment)s.conf' % env,
+            use_sudo=True)
 
         # restart supervisor
         sudo('supervisorctl reread && supervisorctl update')
-        sudo('supervisorctl restart symposion')
+        sudo('supervisorctl restart symposion_%(environment)s' % env)
 
 
 def get_and_render_template(filename, context):

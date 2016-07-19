@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NAME="symposion2016"
-DJANGODIR=/srv/www/pycon.ca/staging.2016/django/symposion2016
-SOCKFILE=/srv/www/pycon.ca/staging.2016/django/run/gunicorn.sock
+NAME="symposion2016_{{ environment }}"
+DJANGODIR={{ code_root }}
+SOCKFILE={{ run_root }}/gunicorn.sock
 USER=deploy
 GROUP=deploy
 NUM_WORKERS=3
