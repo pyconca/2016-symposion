@@ -40,9 +40,9 @@ class Proposal(ProposalBase):
     DURATION_MEDIUM = 'medium'
     DURATION_LONG = 'long'
     DURATION_CHOICES = (
-        (DURATION_SHORT, 'Short (20 min or less)'),
-        (DURATION_MEDIUM, 'Medium (20 - 30 min)'),
-        (DURATION_LONG, 'Long (40 min or more)'),
+        (DURATION_SHORT, 'Short (~10 minutes)'),
+        (DURATION_MEDIUM, 'Long (~30 minutes)'),
+        (DURATION_LONG, 'Classroom tutorial (~45-60 minutes)'),
     )
 
     duration = models.CharField(choices=DURATION_CHOICES,
