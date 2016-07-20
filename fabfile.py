@@ -95,19 +95,12 @@ def deploy():
             run('%(virtualenv_root)s/bin/python manage.py migrate --noinput' % env)
 
         # gunicorn entry script
-        put(get_and_render_template('gunicorn_run.sh', dict(db_name=env.db_name,
-                                                            db_user=env.db_user,
-                                                            db_pass=env.db_pass,
-                                                            code_root=env.code_root,
-                                                            run_root=env.run_root,
-                                                            environment=env.environment)),
+        put(get_and_render_template('gunicorn_run.sh', env),
             os.path.join(env.run_root, 'gunicorn_run.sh'), use_sudo=True)
         sudo('chmod u+x %(run_root)s/gunicorn_run.sh' % env)
 
         # put supervisor conf
-        put(get_and_render_template('symposion.conf', dict(environment=env.environment,
-                                                           logs_root=env.logs_root,
-                                                           run_root=env.run_root)),
+        put(get_and_render_template('symposion.conf', env),
             '/etc/supervisor/conf.d/symposion_%(environment)s.conf' % env,
             use_sudo=True)
 

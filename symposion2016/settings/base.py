@@ -150,7 +150,7 @@ INSTALLED_APPS = [
 
     # symposion
     "symposion",
-    # "symposion.boxes",
+    "pinax.boxes",
     # "symposion.cms",
     "symposion.conference",
     "symposion.proposals",
@@ -244,6 +244,7 @@ AUTHENTICATION_BACKENDS = [
 MARKITUP_SET = "markitup/sets/markdown"
 MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
 MARKITUP_SKIN = "markitup/skins/simple"
+PINAX_BOXES_HOOKSET = 'symposion2016.parsers.MarkdownHookSet'
 
 CONFERENCE_ID = 1
 SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"

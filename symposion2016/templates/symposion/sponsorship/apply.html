@@ -2,7 +2,7 @@
 
 {% load bootstrap %}
 {% load i18n %}
-{#{% load boxes_tags %}#}
+{#{% load pinax_boxes_tags %}#}
 
 {% block head_title %}{% trans "Apply to be a Sponsor" %}{% endblock %}
 
@@ -10,7 +10,7 @@
 
 {% block body %}
 
-{#    {% box "sponsorship-apply" %}#}
+    {% box "sponsorship-apply" %}
 
     <form method="POST" action="" class="form-horizontal">
         {% csrf_token %}
