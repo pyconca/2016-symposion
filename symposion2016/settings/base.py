@@ -220,7 +220,6 @@ FIXTURE_DIRS = [
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = 'cfp@pycon.ca'
 
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_UNIQUE = True
@@ -231,7 +230,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 ACCOUNT_USER_DISPLAY = lambda user: user.email
 
-THEME_CONTACT_EMAIL = 'cfp@pycon.ca'
+THEME_CONTACT_EMAIL = DEFAULT_FROM_EMAIL = 'PyCon Canada CFP <cfp@pycon.ca>'
 
 AUTHENTICATION_BACKENDS = [
     # Permissions Backends
