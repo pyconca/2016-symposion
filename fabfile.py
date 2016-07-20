@@ -92,9 +92,6 @@ def deploy():
             sudo('chown -R deploy:deploy %(run_root)s' % env)
 
             # Migrate and Update the database
-            run('%(virtualenv_root)s/bin/python manage.py migrate auth --noinput' % env)
-            run('%(virtualenv_root)s/bin/python manage.py migrate contenttypes --noinput' % env)
-            run('%(virtualenv_root)s/bin/python manage.py migrate sites --noinput' % env)
             run('%(virtualenv_root)s/bin/python manage.py migrate --noinput' % env)
 
         # gunicorn entry script

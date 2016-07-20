@@ -150,6 +150,7 @@ INSTALLED_APPS = [
 
     # symposion
     "symposion",
+    "pinax",
     "pinax.boxes",
     # "symposion.cms",
     "symposion.conference",
