@@ -21,6 +21,7 @@ def staging():
 
     env.db_name = 'pycon2016_staging'
     env.db_user = 'symposion'
+    env.workers = 1
     env.db_pass = getpass.getpass(prompt="Please enter database (%(db_name)s) password for user %(db_user)s: " % env)
 
     setup_path()
@@ -36,6 +37,7 @@ def production():
 
     env.db_name = 'pycon2016'
     env.db_user = 'symposion'
+    env.workers = 2
     env.db_pass = getpass.getpass(prompt="Please enter database (%(db_name)s) password for user %(db_user)s: " % env)
 
     setup_path()
@@ -90,8 +92,9 @@ def deploy():
             sudo('chown -R deploy:deploy %(run_root)s' % env)
 
             # Migrate and Update the database
-            run('%(virtualenv_root)s/bin/python manage.py migrate sites --noinput' % env)
             run('%(virtualenv_root)s/bin/python manage.py migrate auth --noinput' % env)
+            run('%(virtualenv_root)s/bin/python manage.py migrate contenttypes --noinput' % env)
+            run('%(virtualenv_root)s/bin/python manage.py migrate sites --noinput' % env)
             run('%(virtualenv_root)s/bin/python manage.py migrate --noinput' % env)
 
         # gunicorn entry script

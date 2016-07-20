@@ -5,7 +5,7 @@ DJANGODIR={{ code_root }}
 SOCKFILE={{ run_root }}/gunicorn.sock
 USER=deploy
 GROUP=deploy
-NUM_WORKERS=3
+NUM_WORKERS={{ workers }}
 DJANGO_SETTINGS_MODULE=symposion2016.settings.prod
 DJANGO_WSGI_MODULE=symposion2016.wsgi
 DATABASE_URL=postgres://{{ db_user }}:{{ db_pass }}@localhost:5432/{{ db_name }}
@@ -23,7 +23,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec {{ virtualenv_root }}/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user=$USER --group=$GROUP \
