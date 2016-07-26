@@ -1,3 +1,4 @@
+import os
 import dj_database_url
 from .base import *
 
@@ -22,3 +23,8 @@ X_FRAME_OPTIONS = 'DENY'
 
 DEFAULT_HTTP_PROTOCOL = 'https'
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+
+# Mailgun
+EMAIL_BACKED = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = os.environ['MAILGUN_ACCESS_KEY']
+MAILGUN_SERVER_NAME = 'mailgun.pycon.ca'
