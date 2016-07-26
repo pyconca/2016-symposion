@@ -4,8 +4,10 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from django.contrib import admin
-from account.views import LoginView
+from account.views import LoginView, SignupView
+from account.forms import SignupForm
 from account.forms import LoginEmailForm
+from django.contrib.auth import get_user_model
 
 import symposion.views
 
@@ -16,6 +18,25 @@ WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 class LoginEmailView(LoginView):
     form_class = LoginEmailForm
 
+#
+# class NoUsernameSignUpForm(SignupForm):
+#     username = None
+#     # TODO: change order to show email first
+#
+#
+# class NoUsernameSignUpView(SignupView):
+#     form_class = NoUsernameSignUpForm
+#
+#     def generate_username(self, form):
+#         email = form.cleaned_data['email']
+#         new_username = email.split('@')[0]
+#         User = get_user_model()
+#         c = 1
+#         while User.objects.filter(username=new_username).exists():
+#             new_username += str(c)
+#             c += 1
+#
+#         return new_username
 
 urlpatterns = patterns(
     "",
@@ -25,6 +46,7 @@ urlpatterns = patterns(
     # url(r"^account/signup/$", symposion.views.SignupView.as_view(), name="account_signup"),
     # url(r"^account/login/$", symposion.views.LoginView.as_view(), name="account_login"),
     url(r"^account/login/$", LoginEmailView.as_view(), name="account_login"),
+    # url(r"^account/signup/$", NoUsernameSignUpView.as_view(), name="account_signup"),
     url(r"^account/", include("account.urls")),
 
     url(r"^dashboard/", symposion.views.dashboard, name="dashboard"),

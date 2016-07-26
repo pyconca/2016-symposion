@@ -31,10 +31,13 @@ class Proposal(ProposalBase):
 
     recurring = models.PositiveSmallIntegerField(choices=YES_NO_CHOICES,
                                                  default=0,
-                                                 help_text=_("Have you given this talk before?"))
+                                                 help_text=_("Have you given this talk before?"),
+                                                 verbose_name=_("Previously given"))
     tutorial = models.PositiveSmallIntegerField(choices=YES_NO_CHOICES,
                                                 default=0,
-                                                help_text=_("Would you be interested in a speaking skill tutorial?"))
+                                                help_text=_("Would you be interested in receiving mentorship /"
+                                                            " input on your talk in advance?"),
+                                                verbose_name=_("Speaker mentorship"))
 
     DURATION_SHORT = 'short'
     DURATION_MEDIUM = 'medium'
