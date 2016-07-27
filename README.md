@@ -21,6 +21,78 @@ Dev quickstart
 
 NOTE: default development settings module is `symposion2016.settings.dev`
 
+Development Environment Setup
+-----------------------------
+
+You will need the following:
+
+* Python 2.7
+* pip
+* virutalenvwrapper
+
+Start by cloning the repository:
+
+```
+$ git clone git@github.com:pyconca/2016-symposion.git 2016-symposion
+$ cd ~/2016-symposion
+```
+
+Create a python virtual environment:
+
+```
+$ mkvirtualenv pycon_symposion
+(pycon_symposion) ~/2016-symposion $
+```
+
+The `(pycon_symposion)` prefix indicates that a virtual environment called "pycon_symposion" is being used. Next, check that you have the correct version of Python:
+
+```
+(pycon_symposion) ~/2016-symposion $ python --version
+Python 2.7.12
+(pycon_symposion) ~/2016-symposion $ pip --version
+pip 8.0.2 from /Users/.../site-packages (python 2.7)
+```
+
+Install the project requirements:
+
+```
+(pycon_symposion) ~/2016-symposion $ pip install --upgrade -r requirements.txt
+```
+
+Collect the static assets:
+
+```
+(pycon_symposion) ~/2016-symposion $ python manage.py collectstatic
+```
+
+Create the database:
+
+```
+(pycon_symposion) ~/2016-symposion $ python manage.py migrate
+```
+
+Run the project:
+
+```
+(pycon_symposion) ~/2016-symposion $ python manage.py runserver
+```
+
+### Extra/Optional PyConCA Custom Symposion
+
+Clone the symposion repository in a new directory:
+
+```
+(pycon_symposion) ~/2016-symposion $ cd ..
+(pycon_symposion) $ git clone git@github.com:pyconca/symposion.git symposion
+(pycon_symposion) ~/symposion $ cd ~/symposion
+```
+
+Next replace the GitHub version of symposion with your local copy:
+
+```
+(pycon_symposion) ~/symposion $ python setup.py develop
+```
+
 Deployment
 ----------
 
