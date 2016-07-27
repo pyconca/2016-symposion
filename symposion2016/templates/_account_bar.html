@@ -4,7 +4,7 @@
 
 <ul class="nav navbar-nav pull-right">
     {% if request.user.is_authenticated %}
-        <span class="navbar-text">
+        <span class="navbar-text hidden-xs hidden-sm">
             <i class="fa fa-user"></i> {% user_display request.user %}
         </span>
         <li>
