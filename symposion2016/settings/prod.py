@@ -15,7 +15,9 @@ STATIC_URL = "/static/"
 MIDDLEWARE_CLASSES = ['django.middleware.security.SecurityMiddleware'] + MIDDLEWARE_CLASSES
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_HTTPONLY = True
+# setting CSRF_COOKIE_HTTPONLY to True breaks markitup preview ajax loading
+# https://bitbucket.org/zsiciarz/django-markitup/issues/23/csrf_cookie_httponly-breaks-preview
+CSRF_COOKIE_HTTPONLY = False
 X_FRAME_OPTIONS = 'DENY'
 
 # Symposion
