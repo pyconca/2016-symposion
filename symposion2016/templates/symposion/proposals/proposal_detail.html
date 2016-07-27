@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load account_tags %}
 {% load bootstrap %}
+{% load bleach_tags %}
 
 {% block head_title %}{{ proposal.title }}{% endblock %}
 
@@ -74,7 +75,7 @@
 
             {% for message in proposal.messages.all %}
                 <div class="review-box">
-                    <div class="comment">{{ message.message|safe }}</div>
+                    <div class="comment">{{ message.message|bleach|linebreaks }}</div>
                     <div class="dateline"><b>{% user_display message.user %}</b> {{ message.submitted_at|timesince }} ago</div>
                 </div>
                 <div class="clear"></div>

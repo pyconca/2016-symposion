@@ -15,6 +15,7 @@ django-sitetree==1.5.1
 # Pillow==3.2.0
 easy-thumbnails==2.3
 html5lib==0.9999999
+django-bleach==0.3.0
 
 git+git://github.com/pyconca/symposion.git@2016.3#egg=symposion
 git+git://github.com/pinax/pinax-boxes.git@2.1.1

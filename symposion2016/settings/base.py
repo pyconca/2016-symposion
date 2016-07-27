@@ -147,6 +147,7 @@ INSTALLED_APPS = [
     "sitetree",
     "taggit",
     "timezones",
+    "django_bleach",
 
     # symposion
     "symposion",
