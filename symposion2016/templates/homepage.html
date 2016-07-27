@@ -10,6 +10,7 @@
 {% block body %}
     <h1>PyCon Canada 2016 Call for Proposals is now open!</h1>
 
+    {% if request.user.is_authenticated %}
     <div class="text-center">
         {% if not user.speaker_profile %}
             <a href="{% url 'speaker_create' %}" class="btn btn-large btn-primary">CREATE SPEAKER PROFILE</a>
@@ -17,6 +18,7 @@
             <a href="{% url 'proposal_submit_kind' 'talk' %}" class="btn btn-large btn-primary">SUBMIT A TALK</a>
         {% endif %}
     </div>
+    {% endif %}
     
     {% box "homepage" %}
     
