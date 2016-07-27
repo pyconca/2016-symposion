@@ -17,7 +17,7 @@ easy-thumbnails==2.3
 html5lib==0.9999999
 
 # @@@ Pin this once we get to stable release
-git+git://github.com/pyconca/symposion.git@master#egg=symposion
+git+git://github.com/pyconca/symposion.git@2016.2#egg=symposion
 git+git://github.com/pinax/pinax-boxes.git@2.1.1
 
 # Deployment
