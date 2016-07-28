@@ -26,11 +26,11 @@
     
     <ol>
         <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-success"{% endif %}>Sign up for an account: <a href="https://cfp.pycon.ca/account/signup/">https://cfp.pycon.ca/account/signup/</a>.</li>
-        <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-success"{% endif %}>Click the confirmation link in your email (sorry about this, Symposion is tricky)</li>
+        <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-success"{% endif %}>Click the confirmation link in your email</li>
         <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-success"{% endif %}>Sign in again: <a href="https://cfp.pycon.ca/account/login/">https://cfp.pycon.ca/account/login/</a>.</li>
         <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-success"{% endif %}>Click the "Dashboard" link: <a href="https://cfp.pycon.ca/dashboard/">https://cfp.pycon.ca/dashboard/</a>.</li>
-        <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-success"{% endif %}>Click "Create speaker profile" link (again, sorry, this is really silly, but Symposion demands it): <a href="https://cfp.pycon.ca/speaker/create/">https://cfp.pycon.ca/speaker/create/</a>.</li>
-        <li>Click "Submit a new proposal" then the "Talk/Tutorial" link (have you guessed yet that Symposion was built by developers? Symposion was built by developers): <a href="https://cfp.pycon.ca/proposals/submit/talk/">https://cfp.pycon.ca/proposals/submit/talk/</a>.</li>
+        <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-success"{% endif %}>Click "Create speaker profile" link: <a href="https://cfp.pycon.ca/speaker/create/">https://cfp.pycon.ca/speaker/create/</a>.</li>
+        <li>Click "Submit a new proposal" then the "Talk/Tutorial" link: <a href="https://cfp.pycon.ca/proposals/submit/talk/">https://cfp.pycon.ca/proposals/submit/talk/</a>.</li>
         <li>Fill out that form, click “Save” (or “Save and Add Additional Speakers” if someone else will be giving this talk with you) and you’re all done!</li>
     </ol>
     
