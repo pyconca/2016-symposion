@@ -44,13 +44,8 @@
         {% include "_messages.html" %}
         {% block body_outer %}
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     {% block body %}
-                    {% endblock %}
-                </div>
-                <div class="col-md-3">
-                    {% block sidebar %}
-                        {% include "_default_sidebar.html" %}
                     {% endblock %}
                 </div>
             </div>
