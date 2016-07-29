@@ -14,7 +14,7 @@
             {% if not user.speaker_profile %}
                 <a href="{% url 'speaker_create' %}" class="btn btn-large btn-primary">CREATE SPEAKER PROFILE</a>
             {% else %}
-                <a href="{% url 'proposal_submit_kind' 'talk' %}" class="btn btn-large btn-primary">SUBMIT A TALK</a>
+                <a href="{% url 'proposal_submit_kind' 'talk' %}" class="btn btn-large btn-primary">Submit a new proposal</a>
             {% endif %}
         </div>
         {% endif %}
