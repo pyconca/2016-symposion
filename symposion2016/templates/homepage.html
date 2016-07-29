@@ -29,7 +29,8 @@
     
     <ol>
         <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Sign up for an account: <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}/account/signup/</a>.
+            Sign up for an account:
+            <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}{% url 'account_signup' %}</a>.
         </li>
         
         <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
@@ -37,11 +38,13 @@
         </li>
         
         <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Sign in again: <a href="{% url 'account_login' %}">https://{{ SITE_DOMAIN }}/account/login/</a>.
+            Sign in again:
+            <a href="{% url 'account_login' %}">https://{{ SITE_DOMAIN }}{% url 'account_login' %}</a>.
         </li>
         
         <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Click the "Dashboard" link: <a href="{% url 'dashboard' %}">https://{{ SITE_DOMAIN }}/dashboard/</a>.
+            Click the "Dashboard" link:
+            <a href="{% url 'dashboard' %}">https://{{ SITE_DOMAIN }}{% url 'dashboard' %}</a>.
         </li>
         
         <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
