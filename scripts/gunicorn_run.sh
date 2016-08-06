@@ -9,6 +9,7 @@ NUM_WORKERS={{ workers }}
 DJANGO_SETTINGS_MODULE=symposion2016.settings.prod
 DJANGO_WSGI_MODULE=symposion2016.wsgi
 DATABASE_URL=postgres://{{ db_user }}:{{ db_pass }}@localhost:5432/{{ db_name }}
+SLACKBOT_TOKEN={{ slackbot_token }}
 
 # Activate the virtual environment
 cd $DJANGODIR

@@ -44,6 +44,7 @@ def production():
 
 
 def setup_path():
+    env.slackbot_token = getpass.getpass(prompt="Please enter slackbot token: ")
     env.code_root = os.path.join(env.root, 'symposion2016')
     env.virtualenv_root = os.path.join(env.root, 'env')
     env.logs_root = os.path.join(env.root, 'logs')

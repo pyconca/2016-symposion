@@ -24,3 +24,11 @@ X_FRAME_OPTIONS = 'DENY'
 
 DEFAULT_HTTP_PROTOCOL = 'https'
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = True
+
+WEBHOOKS = {
+    'default': {
+        'url': 'https://pyconca.slack.com/services/hooks/slackbot',
+        'params': {'token': os.environ.get('SLACKBOT_TOKEN'), 'channel': '#programme'},
+        'headers': {'Content-Type': 'text/plain; charset=utf-8'}
+    }
+}

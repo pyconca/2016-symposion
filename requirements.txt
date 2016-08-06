@@ -16,6 +16,7 @@ django-sitetree==1.5.1
 easy-thumbnails==2.3
 html5lib==0.9999999
 django-bleach==0.3.0
+requests==2.10.0
 
 git+git://github.com/pyconca/symposion.git@2016.6#egg=symposion
 git+git://github.com/pinax/pinax-boxes.git@2.1.1
