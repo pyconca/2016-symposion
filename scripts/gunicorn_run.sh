@@ -17,6 +17,7 @@ source ../env/bin/activate
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export DATABASE_URL=$DATABASE_URL
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
+export SLACKBOT_TOKEN=$SLACKBOT_TOKEN
 
 # Create the run directory if it doesn't exist
 RUNDIR=$(dirname $SOCKFILE)
