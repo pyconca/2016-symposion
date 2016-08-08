@@ -19,8 +19,10 @@
                 <td>{{ proposal.number }}</td>
                 <td>
                     <a href="{% url "review_detail" proposal.pk %}">
-                        <small><strong>{{ proposal.speaker }}</strong></small>
-                        <br />
+                        {% if perms.pycon_proposals.can_review_unbiased %}
+                            <small><strong>{{ proposal.speaker }}</strong></small>
+                            <br />
+                        {% endif %}
                         {{ proposal.title }}
                     </a>
                 </td>

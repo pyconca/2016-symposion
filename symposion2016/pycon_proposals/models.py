@@ -56,11 +56,26 @@ class Proposal(ProposalBase):
     class Meta:
         abstract = True
 
+    @property
+    def duration_display(self):
+        return dict(self.DURATION_CHOICES).get(self.duration)
+
+    @property
+    def tutorial_display(self):
+        return 'Yes' if self.tutorial else 'No'
+
+    @property
+    def recurring_display(self):
+        return 'Yes' if self.recurring else 'No'
+
 
 class TalkProposal(Proposal):
 
     class Meta:
         verbose_name = "talk proposal"
+        permissions = (
+            ('can_review_unbiased', 'Can review with speaker details'),
+        )
 
 
 class TutorialProposal(Proposal):
