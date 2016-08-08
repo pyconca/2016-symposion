@@ -94,6 +94,7 @@ def deploy():
 
             # Migrate and Update the database
             run('%(virtualenv_root)s/bin/python manage.py migrate --noinput' % env)
+            run('%(virtualenv_root)s/bin/python manage.py create_review_permissions' % env)
 
         # gunicorn entry script
         put(get_and_render_template('gunicorn_run.sh', env),
