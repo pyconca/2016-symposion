@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load pinax_boxes_tags %}
+{% load staticfiles %}
 
 {% block head_title %}{% trans "Welcome" %}{% endblock %}
 
@@ -19,46 +20,50 @@
         </div>
         {% endif %}
         
-        <h1>PyCon Canada 2016</h1>
+        <h1>PyCon Canada 2016 <img src="{% static "images/red-maple-leaf.png" %}" /></h1>
         <h2>Call for Proposals is now open!</h2>
     </div>
     
     {% box "homepage" %}
+
+    <div class="how-to-submit-container">
     
-    <h2>How to Submit your Proposal</h2>
-    
-    <ol>
-        <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Sign up for an account:
-            <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}{% url 'account_signup' %}</a>.
-        </li>
+        <h2>How to Submit your Proposal</h2>
         
-        <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Click the confirmation link in your email
-        </li>
-        
-        <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Sign in again:
-            <a href="{% url 'account_login' %}">https://{{ SITE_DOMAIN }}{% url 'account_login' %}</a>.
-        </li>
-        
-        <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Click the "Dashboard" link:
-            <a href="{% url 'dashboard' %}">https://{{ SITE_DOMAIN }}{% url 'dashboard' %}</a>.
-        </li>
-        
-        <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-            Click "Create speaker profile" link:
-            <a href="{% url 'speaker_create' %}">https://{{ SITE_DOMAIN }}{% url 'speaker_create' %}</a>.
-        </li>
-        
-        <li>
-            Click "Submit a new proposal" then the "Talk/Tutorial" link:
-            <a href="{% url 'proposal_submit_kind' 'talk' %}">https://{{ SITE_DOMAIN }}{% url 'proposal_submit_kind' 'talk' %}</a>.
-        </li>
-        
-        <li>Fill out that form, click "Save" (or "Save and Add Additional Speakers" if someone else will be giving this talk with you) and you’re all done!</li>
-    </ol>
+        <ol>
+            <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
+                Sign up for an account:
+                <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}{% url 'account_signup' %}</a>.
+            </li>
+            
+            <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
+                Click the confirmation link in your email
+            </li>
+            
+            <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
+                Sign in again:
+                <a href="{% url 'account_login' %}">https://{{ SITE_DOMAIN }}{% url 'account_login' %}</a>.
+            </li>
+            
+            <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
+                Click the "Dashboard" link:
+                <a href="{% url 'dashboard' %}">https://{{ SITE_DOMAIN }}{% url 'dashboard' %}</a>.
+            </li>
+            
+            <li {% if request.user.is_authenticated and user.speaker_profile %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
+                Click "Create speaker profile" link:
+                <a href="{% url 'speaker_create' %}">https://{{ SITE_DOMAIN }}{% url 'speaker_create' %}</a>.
+            </li>
+            
+            <li>
+                Click "Submit a new proposal" then the "Talk/Tutorial" link:
+                <a href="{% url 'proposal_submit_kind' 'talk' %}">https://{{ SITE_DOMAIN }}{% url 'proposal_submit_kind' 'talk' %}</a>.
+            </li>
+            
+            <li>Fill out that form, click "Save" (or "Save and Add Additional Speakers" if someone else will be giving this talk with you) and you’re all done!</li>
+        </ol>
+
+    </div>
     
     {% box "homepage-proposal-guidelines" %}
 {% endblock %}

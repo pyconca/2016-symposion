@@ -11,6 +11,7 @@
 {% block style_base %}
     <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
     <link href="{% static "css/site.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
     {% block extra_style %}{% endblock %}
 {% endblock %}
 
@@ -40,6 +41,9 @@
 {% endblock %}
 
 {% block body_base %}
+    <div class="background-logo">
+        <img src="{% static "images/Python-logo-notext.png" %}" />
+    </div>
     <div class="container">
         {% include "_messages.html" %}
         {% block body_outer %}
@@ -50,17 +54,10 @@
                 </div>
             </div>
         {% endblock %}
-        <hr />
-        <footer class="footer">
-            <div class="pull-left">
-                &copy;2016
-            </div>
-
-            <div class="pull-right">
-                Site powered by <a href="http://eldarion.com/symposion/"><b>Symposion</b></a>.
-            </div>
-        </footer>
     </div>
+    <footer class="footer">
+        <span>&copy;2016.</span><span>Site powered by <a href="http://eldarion.com/symposion/"><b>Symposion</b></a>.</span>
+    </footer>
 {% endblock %}
 
 {% block footer_base %}{% endblock %}
