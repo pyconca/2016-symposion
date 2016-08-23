@@ -9,6 +9,7 @@
 {% block body_class %}home{% endblock %}
 
 {% block body %}
+    <div id="background-pattern-1"><img src="{% static "images/pattern1.png" %}" /></div>
     <div class="page-header">
         {% if request.user.is_authenticated %}
         <div class="pull-right hidden-xs">
@@ -32,8 +33,10 @@
         
         <ol>
             <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
-                Sign up for an account:
-                <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}{% url 'account_signup' %}</a>.
+                <span>
+                    Sign up for an account:
+                    <a href="{% url 'account_signup' %}">https://{{ SITE_DOMAIN }}{% url 'account_signup' %}</a>.
+                </span>
             </li>
             
             <li {% if request.user.is_authenticated %}style="text-decoration:line-through;" class="text-muted"{% endif %}>
@@ -60,7 +63,9 @@
                 <a href="{% url 'proposal_submit_kind' 'talk' %}">https://{{ SITE_DOMAIN }}{% url 'proposal_submit_kind' 'talk' %}</a>.
             </li>
             
-            <li>Fill out that form, click "Save" (or "Save and Add Additional Speakers" if someone else will be giving this talk with you) and you’re all done!</li>
+            <li>
+                Fill out that form, click "Save" (or "Save and Add Additional Speakers" if someone else will be giving this talk with you) and you’re all done!
+            </li>
         </ol>
 
     </div>
