@@ -7,6 +7,29 @@ ToDo
 - [x] setup deployment
 - [ ] setup `noreply` email
 
+Building `site.css`
+-------------------
+
+1. Install [`nvm`](https://github.com/creationix/nvm).
+2. Install a version of NodeJS via `nvm`.
+
+   ```
+   $ source ~/.nvm/nvm.sh  # or where ever you installed nvm.sh
+   $ nvm install <VERSION>
+   ```
+
+3. Install the dependencies:
+
+   ```
+   $ npm install -g less uglify-js
+   ```
+
+4. Build `site.css` (from the project root):
+
+   ```
+   $ make site.css
+   ```
+
 Dev quickstart
 --------------
 
