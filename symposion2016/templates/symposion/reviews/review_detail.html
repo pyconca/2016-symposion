@@ -67,7 +67,7 @@
         </div>
     {% endif %}
 
-    <h3>#{{ proposal.number }}: {{ proposal.title }} ({{ proposal.speaker }})</h3>
+    <h3>#{{ proposal.number }}: {{ proposal.title }} {% if perms.pycon_proposals.can_review_unbiased %} ({{ proposal.speaker }}){% endif %}</h3>
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
