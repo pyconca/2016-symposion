@@ -5,7 +5,7 @@
         <th>#</th>
         <th>{% trans "Speaker / Title" %}</th>
         <th>{% trans "Category" %}</th>
-        <th><i class="fa fa-comment-alt"></i></th>
+        <th><i class="fa fa-comment-o"></i></th>
         <th>{% trans "+1" %}</th>
         <th>{% trans "+0" %}</th>
         <th>{% trans "-0" %}</th>
@@ -28,10 +28,17 @@
                 </td>
                 <td>{{ proposal.track }}</td>
                 <td>{{ proposal.comment_count }}</td>
-                <td>{{ proposal.plus_one }}</td>
-                <td>{{ proposal.plus_zero }}</td>
-                <td>{{ proposal.minus_zero }}</td>
-                <td>{{ proposal.minus_one }}</td>
+                {% if proposal.user_vote or perms.pycon_proposals.can_review_unbiased %}
+                  <td>{{ proposal.plus_one }}</td>
+                  <td>{{ proposal.plus_zero }}</td>
+                  <td>{{ proposal.minus_zero }}</td>
+                  <td>{{ proposal.minus_one }}</td>
+                {% else %}
+                  <td><span class="fa fa-question"</td>
+                  <td><span class="fa fa-question"</td>
+                  <td><span class="fa fa-question"</td>
+                  <td><span class="fa fa-question"</td>
+                {% endif %}
                 <td>{{ proposal.user_vote|default:"" }}</td>
             </tr>
         {% endfor %}

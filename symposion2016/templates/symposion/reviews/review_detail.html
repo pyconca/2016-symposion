@@ -80,32 +80,33 @@
                 {% include "symposion/proposals/_proposal_fields.html" %}
             </div>
             <div class="tab-pane" id="proposal-reviews">
+                {% if perms.pycon_proposals.can_review_unbiased %}
+                  <h4>{% trans "Current Results" %}</h4>
+                  <table class="table table-striped">
+                      <thead>
+                          <th>+1 votes</th>
+                          <th>+0 votes</th>
+                          <th>-0 votes</th>
+                          <th>-1 votes</th>
+                          <th>{% trans "Total Responses" %}
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>{{ proposal.plus_one }}</td>
+                              <td>{{ proposal.plus_zero }}</td>
+                              <td>{{ proposal.minus_zero }}</td>
+                              <td>{{ proposal.minus_one }}</td>
+                              <td>{{ proposal.total_votes }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
 
-                <h4>{% trans "Current Results" %}</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <th>+1 votes</th>
-                        <th>+0 votes</th>
-                        <th>-0 votes</th>
-                        <th>-1 votes</th>
-                        <th>{% trans "Total Responses" %}
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ proposal.plus_one }}</td>
-                            <td>{{ proposal.plus_zero }}</td>
-                            <td>{{ proposal.minus_zero }}</td>
-                            <td>{{ proposal.minus_one }}</td>
-                            <td>{{ proposal.total_votes }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <hr />
+                  <hr />
+                {% endif %}
 
                 {% if review_form %}
                     <form method="POST" action="" class="review-form">
-                        <legend>{% trans "Submit Review" %}</legend>
+                        <legend>{% trans "Submit Review" %}{{ proposal.user_vote }}</legend>
                         <p>Enter your vote and any comment to go along with it. You can revise your vote or comment multiple times with an existing vote (your previously recorded score will be replaced during calculations). <b>Your vote and comments are not public and will only be viewable by other reviewers.</b></p>
                         {% csrf_token %}
                             {{ review_form|bootstrap }}
@@ -133,7 +134,9 @@
                                 </div>
                             {% endif %}
                             <div class="review-content">
-                                <b>{% user_display review.user %}</b>
+                                {% if perms.pycon_proposals.can_review_unbiased %}
+                                  <b>{% user_display review.user %}</b>
+                                {% endif %}
                                 {{ review.submitted_at|timesince }} ago <br />
                                 {{ review.comment|safe }}
                             </div>
