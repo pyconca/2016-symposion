@@ -57,7 +57,7 @@ Start by cloning the repository:
 
 ```
 $ git clone git@github.com:pyconca/2016-symposion.git 2016-symposion
-$ cd ~/2016-symposion
+$ cd 2016-symposion
 ```
 
 Create a python virtual environment:
@@ -76,7 +76,14 @@ Python 2.7.12
 pip 8.0.2 from /Users/.../site-packages (python 2.7)
 ```
 
+Make sure that postgres development package is installed
+
+```
+# aptitude install postgresql-server-dev-9.5
+```
+
 Install the project requirements:
+
 
 ```
 (pycon_symposion) ~/2016-symposion $ pip install --upgrade -r requirements.txt
