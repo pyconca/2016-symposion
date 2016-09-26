@@ -1,0 +1,21 @@
+{% if slot.kind.label == "talk" or slot.kind.label == "tutorial" or slot.kind.label == "keynote" %}
+    {% if not slot.content %}
+    {{ slot.content_override|safe }}
+    {% else %}
+        <span class="title">
+            <a href="{{ slot.content.get_absolute_url }}">{{ slot.content.title }}</a>
+        </span>
+        <span class="speaker">
+            {{ slot.content.speakers|join:", " }}
+        </span>
+    {% endif %}
+{% else %}
+    {% if slot.content_override %}
+        {{ slot.content_override|safe }}
+    {% else %}
+        {{ slot.kind.label }}
+    {% endif %}
+{% endif %}
+<span class="fake-room">
+    {% for room in slot.rooms %}{{ room }}{% endfor %}
+</span>

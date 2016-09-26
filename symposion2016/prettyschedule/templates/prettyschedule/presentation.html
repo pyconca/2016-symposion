@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load markup_tags %}
+
+{% block title %}{{ p.title }} {% trans 'with' %} {% for speaker in p.speakers %}{{ speaker }}{% endfor %}{% endblock %}
+
+{% block content %}
+    <div class="container presentation">
+        <div class="grid">
+            <div class="col-3 spacer"></div>
+            <div class="col-6">
+                <h1>
+                    {{ p.title }}
+                    <em>{% trans 'with' %} {% for speaker in p.speakers %}{{ speaker }}{% if not forloop.last %}{% ifequal forloop.revcounter 2 %} and {% else %}, {% endifequal %}{% else %}{% endif %}{% endfor %}</em>
+                    {% if user.is_authenticated %}
+                    <small class="admin_link">
+                        (<a href="{% url 'admin:schedule_presentation_change' p.pk %}">Edit Presentation</a>)
+                    </small>
+                    {% endif %}
+                </h1>
+                <p><strong>{% trans 'Date' %}</strong>: {{ p.slot.start_datetime|date:"l" }} at {{ p.slot.start_datetime|date:"P" }} to {{ p.slot.end_datetime|date:"P" }}</p>
+                <p><strong>{% trans 'Room' %}</strong>: {{ p.slot.rooms|first }}</p>
+                <div class="description">
+                    {{ p.description|apply_markup:"markdown" }}
+                </div>
+
+                <div class="speakers">
+                    {% for speaker in p.speakers %}
+                    <h2>{{ speaker }} {% trans 'Bio' %}</h2>
+                    <div class="bio">
+                        {{ speaker.bio|apply_markup:"markdown" }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

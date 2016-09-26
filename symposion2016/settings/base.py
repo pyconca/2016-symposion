@@ -165,6 +165,7 @@ INSTALLED_APPS = [
     # project
     "symposion2016",
     "symposion2016.pycon_proposals",
+    "symposion2016.prettyschedule",
 ]
 
 # A sample logging configuration. The only tangible logging

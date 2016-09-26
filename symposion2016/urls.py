@@ -13,6 +13,8 @@ from django.contrib.auth import get_user_model
 
 import symposion.views
 
+from prettyschedule.views import ScheduleView
+
 
 WIKI_SLUG = r"(([\w-]{2,})(/[\w-]{2,})*)"
 
@@ -65,6 +67,7 @@ urlpatterns = patterns(
     url(r"^schedule/", include("symposion.schedule.urls")),
     url(r"^markitup/", include("markitup.urls")),
     url(r"^boxes/", include("pinax.boxes.urls")),
+    url(r"^pretty-schedule/", ScheduleView.as_view(), name='pretty-schedule'),
 
     # url(r"^", include("symposion.cms.urls")),
 )

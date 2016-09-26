@@ -1,0 +1,26 @@
+{% spaceless %}
+    <!DOCTYPE html>
+    <html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+        <meta name="viewport" content="width=1024, minimum-scale=0.25">
+        <link rel="icon" type="image/png" href="https://2015.pycon.ca/static/images/favicon.png">
+        <link rel="stylesheet" href="https://2015.pycon.ca/static/css/app.css">
+        <!--[if lt IE 8]>
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/ie8.css">
+        <![endif]-->
+        <title>{% block title %}Welcome!{% endblock %} | PyCon Canada 2015</title>
+    </head>
+    <body>
+    {% block body %}
+        {% block content %}{% endblock %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/app.js"></script>
+    {% block javascript %}{% endblock %}
+    </body>
+    </html>
+{% endspaceless %}
