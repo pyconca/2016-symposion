@@ -1,6 +1,6 @@
 [
     {
-        "comment": "3 tracks, mixed 10 & 30 minute talks (20160927)",
+        "comment": "3 tracks, mixed 10 & 30 minute talks (20160928)",
         "rooms": [
             "1-067",
             "2-166",
@@ -42,8 +42,8 @@
                     66,
                     64,
 
-                    null,
-                    null,
+                    105,
+                    98,
                     null,
 
                     101,
@@ -56,8 +56,8 @@
                     61,
                     107,
 
-                    105,
-                    98,
+                    null,
+                    null,
                     null,
 
                     83,
@@ -84,9 +84,9 @@
                     54,
                     116,
 
-                    null,
-                    null,
-                    null,
+                    115,
+                    86,
+                    106,
 
                     27,
                     39,
@@ -97,9 +97,9 @@
                     56,
                     58,
 
-                    115,
-                    86,
-                    106,
+                    null,
+                    null,
+                    null,
 
                     104,
                     100,
