@@ -29,7 +29,7 @@
                     {% for speaker in p.speakers %}
                     <h2>{{ speaker }} {% trans 'Bio' %}</h2>
                     <div class="bio">
-                        {{ speaker.bio|apply_markup:"markdown" }}
+                        {{ speaker.biography|apply_markup:"markdown" }}
                     </div>
                     {% endfor %}
                 </div>

@@ -148,6 +148,7 @@ INSTALLED_APPS = [
     "taggit",
     "timezones",
     "django_bleach",
+    "django_markup",
 
     # symposion
     "symposion",

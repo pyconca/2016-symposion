@@ -3,7 +3,7 @@
     {{ slot.content_override|safe }}
     {% else %}
         <span class="title">
-            <a href="{{ slot.content.get_absolute_url }}">{{ slot.content.title }}</a>
+            <a href="/pretty-schedule/{{ slot.content.proposal_base_id }}">{{ slot.content.title }}</a>
         </span>
         <span class="speaker">
             {{ slot.content.speakers|join:", " }}

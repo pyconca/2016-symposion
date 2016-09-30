@@ -25,7 +25,7 @@ class PresentationView(TemplateView):
     template_name = 'prettyschedule/presentation.html'
 
     def get(self, request, pk, *args, **kwargs):
-        presentation = get_object_or_404(Presentation, pk=pk)
+        presentation = get_object_or_404(Presentation, proposal_base_id=pk)
 
         return self.render_to_response({
             'p': presentation
