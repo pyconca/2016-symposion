@@ -133,6 +133,10 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
 
+    # api
+    "rest_framework",
+    "rest_framework.authtoken",
+
     # theme
     "bootstrapform",
     "pinax_theme_bootstrap",
@@ -165,7 +169,18 @@ INSTALLED_APPS = [
     # project
     "symposion2016",
     "symposion2016.pycon_proposals",
+    "symposion2016.conf_api",
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

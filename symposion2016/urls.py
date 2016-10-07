@@ -66,6 +66,8 @@ urlpatterns = patterns(
     url(r"^markitup/", include("markitup.urls")),
     url(r"^boxes/", include("pinax.boxes.urls")),
 
+    url(r"^api/", include('symposion2016.conf_api.urls')),
+
     # url(r"^", include("symposion.cms.urls")),
 )
 
