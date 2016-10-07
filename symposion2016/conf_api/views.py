@@ -26,9 +26,6 @@ class CurrentConferenceView(views.APIView):
         return Response(data=conf_serializer.data)
 
 
-# SCHEDULE
-
-
 class TalkProposalView(viewsets.ModelViewSet):
     queryset = TalkProposal.objects.all()
     serializer_class = TalkSerializer
